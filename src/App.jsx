@@ -7,7 +7,7 @@ import { v4 as uuidv4 } from "uuid";
 const KEY = "filmsApp.list";
 
 export function App() {
-  const [films, setFilms] = useState([{ id: 1, name: "Test" }]);
+  const [films, setFilms] = useState([]); // Example: { id: 1, name: "Test", viewed: true }
 
   const [counter, setCounter] = useState(1);
 

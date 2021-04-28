@@ -1,7 +1,7 @@
 import React from "react";
 import { FilmItem } from "./FilmItem";
 
-export function FilmList({ films }) {
+export function FilmList({ films ,deleteFilm,markAsRead}) {
   return (
     <table className="table table-striped">
       <thead>
@@ -13,7 +13,7 @@ export function FilmList({ films }) {
       </thead>
       <tbody>
       {films.map((film) => (
-            <FilmItem key={film.id} film={film} />
+            <FilmItem key={film.id} film={film} deleteFilm={deleteFilm} toggleRead={markAsRead}/>            
           ))}        
       </tbody>
     </table>

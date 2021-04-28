@@ -4,16 +4,25 @@ import "../App.css";
 export function FilmFinder({ addNewFilm }) {
   const filmRef = useRef();
 
-  const addFilm = () => {
+  const addFilm = (e) => {
+    if (e.type === "keypress" && e.key !== "Enter") return;
     const inputValue = filmRef.current.value;
-    addNewFilm(inputValue);
+    if (inputValue.trim() !== "") {
+      addNewFilm(inputValue);
+    }
     filmRef.current.value = null;
   };
 
   return (
     <fragment>
-      <div className="input-group mt-3">
-        <input ref={filmRef} type="text" placeholder="Nombre de una película" />
+      <div className="input-group mb-3">
+        <input
+          ref={filmRef}
+          type="text"
+          onKeyPress={addFilm}
+          className="form-control"
+          placeholder="Nombre de una película"
+        />
         <button
           onClick={addFilm}
           type="button"
